@@ -650,10 +650,10 @@
     #define DEFAULT_Ki_LIST {   1.08,   1.08 }
     #define DEFAULT_Kd_LIST { 114.00, 114.00 }
   #else
-    // tuned for my Elegoo Neptune 2, but you should tune on you own machine once you haev it setup
-    #define DEFAULT_Kp  25.47
-    #define DEFAULT_Ki   2.11
-    #define DEFAULT_Kd  76.90
+    // tuned for my Elegoo Neptune S2, but you should tune on you own machine once you haev it setup
+    #define DEFAULT_Kp  28.44
+    #define DEFAULT_Ki   2.96
+    #define DEFAULT_Kd  68.25
   #endif
 #endif // PIDTEMP
 
@@ -693,10 +693,10 @@
   // 120V 250W silicone heater into 4mm borosilicate (MendelMax 1.5+)
   // from FOPDT model - kp=.39 Tp=405 Tdead=66, Tc set to 79.2, aggressive factor of .15 (vs .1, 1, 10)
 
-  // tuned for Elegoo Neptune 2, but you should tune on you own machine once you haev it setup
-  #define DEFAULT_bedKp 31.30
-  #define DEFAULT_bedKi 6.02
-  #define DEFAULT_bedKd 108.50
+  // tuned for Elegoo Neptune S2, but you should tune on you own machine once you haev it setup
+  #define DEFAULT_bedKp 68.92
+  #define DEFAULT_bedKi 12.49
+  #define DEFAULT_bedKd 253.63
 
   // FIND YOUR OWN: "M303 E-1 C8 S90" to run autotune on the bed at 90 degreesC for 8 cycles.
 #endif // PIDTEMPBED
