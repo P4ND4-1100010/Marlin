@@ -21,7 +21,7 @@
  */
 #pragma once
 
-#define CONFIG_EXAMPLES_DIR "Elegoo/Neptune-2/V1.3/BLTOUCH-DUALFAN"
+#define CONFIG_EXAMPLES_DIR "Elegoo/NeptuneS2"
 
 /**
  * Configuration.h
@@ -71,7 +71,7 @@
 // @section info
 
 // Author info of this build printed to the host during boot and M115
-#define STRING_CONFIG_H_AUTHOR "(p4nd4, Neptune 2 - Marlin 2 Color UI)" // Who made the changes.
+#define STRING_CONFIG_H_AUTHOR "(P4ND4_1100010, Neptune S2 - Marlin 2 Color UI)" // Who made the changes.
 #define CUSTOM_VERSION_FILE Version.h // Path from the root directory (no quotes)
 
 // @section custom overrides
@@ -650,7 +650,7 @@
     #define DEFAULT_Ki_LIST {   1.08,   1.08 }
     #define DEFAULT_Kd_LIST { 114.00, 114.00 }
   #else
-    // tuned for my Elegoo Neptune S2, but you should tune on you own machine once you haev it setup
+    // Tuned for my Elegoo Neptune S2, but you should tune on your own machine once you have it setup
     #define DEFAULT_Kp  28.44
     #define DEFAULT_Ki   2.96
     #define DEFAULT_Kd  68.25
@@ -693,7 +693,7 @@
   // 120V 250W silicone heater into 4mm borosilicate (MendelMax 1.5+)
   // from FOPDT model - kp=.39 Tp=405 Tdead=66, Tc set to 79.2, aggressive factor of .15 (vs .1, 1, 10)
 
-  // tuned for Elegoo Neptune S2, but you should tune on you own machine once you haev it setup
+  // Tuned for my Elegoo Neptune S2, but you should tune on your own machine once you have it setup
   #define DEFAULT_bedKp 68.92
   #define DEFAULT_bedKi 12.49
   #define DEFAULT_bedKd 253.63
@@ -978,9 +978,10 @@
 /**
  * Default Axis Steps Per Unit (steps/mm)
  * Override with M92
+ * E0 tuned for my Elegoo Neptune S2, but may differ on your onw machine. Its recommended to tune on your own machine once you have it setup
  *                                      X, Y, Z [, I [, J [, K]]], E0 [, E1[, E2...]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 95 }
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 133 }
 
 /**
  * Default Max Feed Rate (mm/s)
