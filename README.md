@@ -1,8 +1,8 @@
 # THIS IS EXPERIMENTAL USE AT YOUR OWN RISK. BUT IT SHOULD WORK!
 
-# Marlin 3D Printer Firmware compiled for Elegoo Neptune 2 with BLTouch
+# Marlin 3D Printer Firmware compiled for Elegoo Neptune S2
 
-forked from [Marlin 2](https://github.com/MarlinFirmware/Marlin/releases)
+forked from [just-trey/Marlin](https://github.com/just-trey/Marlin)
 
 **NOTE:** This is compiled for the ZNP Robin 1.3 board, which ships with some Neptune 2's and all Neptune 2S's. It is not built to be compatible with the ZNP Robin Nano 1.2 board. A few changes could work, but I do not know the stepper drivers needed. 
 
