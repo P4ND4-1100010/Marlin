@@ -71,7 +71,7 @@
 // @section info
 
 // Author info of this build printed to the host during boot and M115
-#define STRING_CONFIG_H_AUTHOR "(Trey Wentz, Neptune 2 - Marlin 2 Color UI)" // Who made the changes.
+#define STRING_CONFIG_H_AUTHOR "(p4nd4, Neptune 2 - Marlin 2 Color UI)" // Who made the changes.
 #define CUSTOM_VERSION_FILE Version.h // Path from the root directory (no quotes)
 
 // @section custom overrides
@@ -81,7 +81,7 @@
  */
 
 #define FIRMWARE_BIN elegoo.bin // Name of the firmware file output to support elegoo's locked bootloader
-#define HAS_BLTOUCH   // Enable if you want to use BLTOUCH
+//#define HAS_BLTOUCH   // Enable if you want to use BLTOUCH
 
 /* Neptune 2 Custom Theme (adjustments for better clarity) */
 
@@ -193,7 +193,7 @@
 //#define BLUETOOTH
 
 // Name displayed in the LCD "Ready" message and Info menu
-#define CUSTOM_MACHINE_NAME "Elegoo Neptune 2"
+#define CUSTOM_MACHINE_NAME "Elegoo Neptune 2S"
 
 // Printer's unique ID, used by some programs to differentiate between machines.
 // Choose your own or use a service like https://www.uuidgenerator.net/version4
