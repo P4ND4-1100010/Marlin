@@ -651,9 +651,9 @@
     #define DEFAULT_Kd_LIST { 114.00, 114.00 }
   #else
     // Tuned for my Elegoo Neptune S2, but you should tune on your own machine once you have it setup
-    #define DEFAULT_Kp  28.44
-    #define DEFAULT_Ki   2.96
-    #define DEFAULT_Kd  68.25
+    #define DEFAULT_Kp  33.25
+    #define DEFAULT_Ki   3.68
+    #define DEFAULT_Kd  75.15
   #endif
 #endif // PIDTEMP
 
