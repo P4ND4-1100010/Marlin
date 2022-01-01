@@ -1,4 +1,4 @@
-# THIS IS EXPERIMENTAL USE AT YOUR OWN RISK. BUT IT SHOULD WORK!
+# THIS IS EXPERIMENTAL USE AT YOUR OWN RISK.    WIP
 
 # Marlin 3D Printer Firmware compiled for Elegoo Neptune S2
 
