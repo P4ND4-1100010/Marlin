@@ -21,7 +21,7 @@
  */
 #pragma once
 
-#define CONFIG_EXAMPLES_DIR "Elegoo/Neptune2S"
+#define CONFIG_EXAMPLES_DIR "Elegoo/Neptune-2/V1.2/STOCK"
 
 /**
  * Configuration.h
@@ -71,7 +71,7 @@
 // @section info
 
 // Author info of this build printed to the host during boot and M115
-#define STRING_CONFIG_H_AUTHOR "(P4ND4_1100010, Neptune S2 - Marlin 2 Color UI)" // Who made the changes.
+#define STRING_CONFIG_H_AUTHOR "(Trey Wentz, Neptune 2 - Marlin 2 Color UI)" // Who made the changes.
 #define CUSTOM_VERSION_FILE Version.h // Path from the root directory (no quotes)
 
 // @section custom overrides
@@ -147,8 +147,8 @@
 
 // Choose the name from boards.h that matches your setup
 #ifndef MOTHERBOARD
-  #define MOTHERBOARD BOARD_MKS_ROBIN_NANO_V1_3_F4
-  // #define MOTHERBOARD BOARD_MKS_ROBIN_NANO  //Use this for ZNP Robin Nano 1.2 board
+  //#define MOTHERBOARD BOARD_MKS_ROBIN_NANO_V1_3_F4
+  #define MOTHERBOARD BOARD_MKS_ROBIN_NANO  //Use this for ZNP Robin Nano 1.2 board
 #endif
 
 /**
@@ -195,7 +195,7 @@
 //#define BLUETOOTH
 
 // Name displayed in the LCD "Ready" message and Info menu
-#define CUSTOM_MACHINE_NAME "Elegoo Neptune 2S"
+#define CUSTOM_MACHINE_NAME "Elegoo Neptune 2"
 
 // Printer's unique ID, used by some programs to differentiate between machines.
 // Choose your own or use a service like https://www.uuidgenerator.net/version4
@@ -652,10 +652,10 @@
     #define DEFAULT_Ki_LIST {   1.08,   1.08 }
     #define DEFAULT_Kd_LIST { 114.00, 114.00 }
   #else
-    // Tuned for my Elegoo Neptune S2, but you should tune on your own machine once you have it setup
-    #define DEFAULT_Kp  33.25
-    #define DEFAULT_Ki   3.68
-    #define DEFAULT_Kd  75.15
+    // tuned for my Elegoo Neptune 2, but you should tune on you own machine once you haev it setup
+    #define DEFAULT_Kp  25.47
+    #define DEFAULT_Ki   2.11
+    #define DEFAULT_Kd  76.90
   #endif
 #endif // PIDTEMP
 
@@ -695,10 +695,10 @@
   // 120V 250W silicone heater into 4mm borosilicate (MendelMax 1.5+)
   // from FOPDT model - kp=.39 Tp=405 Tdead=66, Tc set to 79.2, aggressive factor of .15 (vs .1, 1, 10)
 
-  // Tuned for my Elegoo Neptune S2, but you should tune on your own machine once you have it setup
-  #define DEFAULT_bedKp 68.92
-  #define DEFAULT_bedKi 12.49
-  #define DEFAULT_bedKd 253.63
+  // tuned for Elegoo Neptune 2, but you should tune on you own machine once you haev it setup
+  #define DEFAULT_bedKp 31.30
+  #define DEFAULT_bedKi 6.02
+  #define DEFAULT_bedKd 108.50
 
   // FIND YOUR OWN: "M303 E-1 C8 S90" to run autotune on the bed at 90 degreesC for 8 cycles.
 #endif // PIDTEMPBED
@@ -980,10 +980,9 @@
 /**
  * Default Axis Steps Per Unit (steps/mm)
  * Override with M92
- * E0 tuned for my Elegoo Neptune S2, but may differ on your onw machine. Its recommended to tune on your own machine once you have it setup
  *                                      X, Y, Z [, I [, J [, K]]], E0 [, E1[, E2...]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 133 }
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 95 }
 
 /**
  * Default Max Feed Rate (mm/s)
