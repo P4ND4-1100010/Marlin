@@ -652,7 +652,7 @@
     #define DEFAULT_Ki_LIST {   1.08,   1.08 }
     #define DEFAULT_Kd_LIST { 114.00, 114.00 }
   #else
-    // Tuned for my Elegoo Neptune S2, but you should tune on your own machine once you have it setup
+    // Tuned for my Elegoo Neptune 2S, but you should tune on your own machine once you have it setup
     #define DEFAULT_Kp  33.25
     #define DEFAULT_Ki   3.68
     #define DEFAULT_Kd  75.15
@@ -695,7 +695,7 @@
   // 120V 250W silicone heater into 4mm borosilicate (MendelMax 1.5+)
   // from FOPDT model - kp=.39 Tp=405 Tdead=66, Tc set to 79.2, aggressive factor of .15 (vs .1, 1, 10)
 
-  // Tuned for my Elegoo Neptune S2, but you should tune on your own machine once you have it setup
+  // Tuned for my Elegoo Neptune 2S, but you should tune on your own machine once you have it setup
   #define DEFAULT_bedKp 68.92
   #define DEFAULT_bedKi 12.49
   #define DEFAULT_bedKd 253.63
@@ -980,7 +980,7 @@
 /**
  * Default Axis Steps Per Unit (steps/mm)
  * Override with M92
- * E0 tuned for my Elegoo Neptune S2, but may differ on your onw machine. Its recommended to tune on your own machine once you have it setup
+ * E0 tuned for my Elegoo Neptune 2S, but may differ on your onw machine. Its recommended to tune on your own machine once you have it setup
  *                                      X, Y, Z [, I [, J [, K]]], E0 [, E1[, E2...]]
  */
 #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 133 }
