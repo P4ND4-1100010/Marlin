@@ -1,14 +1,18 @@
 ** NOTICE: ** Several people are still testing this. If you want something more stable, you may want to wait. You can see the [current testing status, known issues, workarounds, and faq's here](https://github.com/just-trey/Marlin/blob/elegoo-neptune-2/config/Elegoo/Neptune-2/TESTING_STATUS.MD).
 
+Changelog is now availble here:
+
+
+
 # Marlin 2.x - Color UI - 3D Printer Firmware compiled for Elegoo Neptune 2
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
-**Note:** The configurations and compiled versions are both available in this bundle. 
+**Note:** The configurations and compiled versions are available in this bundle. 
 
 This is a package of Marlin 2.x configurations for the Elegoo Neptune 2. The configurations are compatible with the Elegoo Neptune 2S. The source is a fork from [Marlin 2](https://github.com/MarlinFirmware/Marlin/releases). No changes have been made to the Marlin codebase, and only configuration files for the Elegoo Neptune 2 are added. 
 
-These files are being provided as opensource under the same [GPL v3](https://www.gnu.org/licenses/gpl-3.0) license as Marlin 2.
+These files are provided as opensource under the same [GPL v3](https://www.gnu.org/licenses/gpl-3.0) license as Marlin 2.
 
 ## Please Read and Consider:
 I am providing these configurations to the community for free. If you find this helpful or your ETSY printer farm benefits from this (or makes you rich :grinning:), I would like you to please consider donating to a nonprofit close to my heart that supports my community. More information is at the end of this [README](#donation-request). 
@@ -24,8 +28,10 @@ All versions provided come with these features.
    - Update many configuration values (including ESTEPS) right on the screen
    - PID Autotuning for the nozzle AND bed from the UI.  
 1. [S-Curve Acceleration](https://github.com/synthetos/TinyG/wiki/Jerk-Controlled-Motion-Explained)
-1. ARC Support (I am not sure this is new or not)
+1. Adaptive Step Smoothing
+1. ARC Support Enabled
 1. **M117** Change filament at layer.
+1. Touchscreen will turn off after 2 min on the staus screen (tap it to turn it back on)
 1. The progress screen will update if you are printing from Octoprint.
 
 BLTouch versions also include:
@@ -60,26 +66,20 @@ The following items are not supported:
 
 ## Install
 
+NOTE: the last four steps may seem a little odd, but I can confirm this is working reliably. I will be opening an ISSUE on the Marlin GitHub repo to see if there is a better way. 
+
 1. Power off your printer
 1. Put the sd card in with the appropriate `elegoo.bin` file... *Reminder: Did I mention to make sure you have the correct version for your board?*
 1. Turn on your printer.
 1. The firmware will install.
-1. `I'm not sure if you get this EEPROM warning here` - You may get an EEPROM version warning (can someone send me a screenshot?) If you do, click the checkmark.
 1. Once installed, click on the calibration touchpoints. When the touch calibration is complete, it will display a confirmation message. You may think it froze but give it a little time.
 
-   Please note: After you click the bottom right calibration point, reboot your machine if it prompts you to click the top left again. I have never had to do this more than twice. 
+   Please note: After you click the bottom right calibration point, reboot your machine if it prompts you to click the top left again. I have never had to do this more than twice when installing the firmware. 
 
-1. `Or you may get the EEPROM warning here` - need confirmation`
-
-## What to do next
-**Confirm you can home the machine** this is a known issue with a workaround 
-
-1. Click in the middle of the screen around the Y and the homing screen will display.
-1. Click on the Home icon.
-1. Did you get the RED Error Screen?
-   - Yes? - [How to resolve is here](TESTING_STATUS.MD#homing-failed).
-   - No? - I'm jealous. Have fun!
-
+2. Click *SETTINGS ICON -> Configuration -> Advanced Settings -> NEXT ARROW (>) -> Initialize EEPROM*
+3. Click the Check on the confirmation screen
+4. reboot your machine
+5. Click the calibration touchpoints again   
 ## (Optional, but recommended) PID AUTOTUNE your machine.
 
 *Did you know?* - Elegoo ships with some default values for this, but they can vary with *every* machine. PID tuning is a safety feature, and unless you want my machine's values, I suggest you do this.
@@ -89,6 +89,23 @@ The following items are not supported:
 1. From the main screen click on *settings icon -> Configuration -> Advanced Settings -> NEXT ARROW (>) -> Tempeture -> NEXT ARROW (>) -> PID AUTOTUNE BED*
 1. The bed will heat up and down for a few minutes. When completed, the screen will display a confirmation message on the bottom of the status screen.
 1. From the main screen click on the *settings icon -> Configuration -> NEXT ARROW (>) -> Store settings*
+
+## TIPS
+
+### Z Offest See=ttings Wizard Location
+
+1. *settings icon -> Configuration -> Advanced Settings -> NEXT ARROW (>) -> Tempeture -> NEXT ARROW (>) -> PID AUTOTUNE BED*
+
+### Live Z Offset (Baby Stepping) Location
+
+While printing: 
+
+*settings icon -> Tune -> NEXT ARROW (>) -> HERE*
+
+### Dual Fan BT Touch Probe offsets
+
+If you happen to use [this dual fan printhead](https://www.thingiverse.com/thing:4949488), the X offset is 47.5, and the Y offest is 0 
+You can set this at: *settings icon -> Tune -> NEXT ARROW (>) -> HERE*
 
 ## Donation Request
 
@@ -100,6 +117,11 @@ My son, Tyler Wentz, passed away after having a bodysurfing accident in 2015. We
 
 You can learn more about the Tyler Wentz Memorial Fund fund at: https://twentz.com/ 
 
+## Possible TODO's (PR's accepted)
+
+1. Provide a configuration with linear advance on
+2. Automate configuration building
+
 ---
 
-Have fun click aroudn the interface let me knw if you have any issues and Happy Printing!
+Have fun clicking around the interface. Let me know if you have any issues, and Happy Printing!
