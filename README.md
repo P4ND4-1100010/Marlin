@@ -1,3 +1,13 @@
+# THIS IS EXPERIMENTAL USE AT YOUR OWN RISK. WIP
+
+# IMPORTANT: AFTER INSTALLATION RUN THIS COMMANDS:
+
+M502 
+M500
+
+# Marlin 3D Printer Firmware compiled for Elegoo Neptune 2S
+
+forked from [just-trey/Marlin](https://github.com/just-trey/Marlin)
 # Marlin 3D Printer Firmware
 
 ![GitHub](https://img.shields.io/github/license/marlinfirmware/marlin.svg)
