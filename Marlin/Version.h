@@ -21,7 +21,7 @@
  */
 #pragma once
 
-#define CONFIG_EXAMPLES_DIR "Elegoo/Neptune-2/V1.3/BLTOUCH"
+#define CONFIG_EXAMPLES_DIR "Elegoo/Neptune2S"
 
 ////////////////////////////
 // VENDOR VERSION EXAMPLE //
@@ -31,7 +31,7 @@
  * Marlin release version identifier
  *
  */
-#define SHORT_BUILD_VERSION "2.0.9.3-N2-1.3-BLTOUCH"
+#define SHORT_BUILD_VERSION "2.0.9.3-N2-1.3"
 
 /**
  * Verbose version identifier which should contain a reference to the location
@@ -44,12 +44,12 @@
  * here we define this default string as the date where the latest release
  * version was tagged.
  */
-#define STRING_DISTRIBUTION_DATE "2022-01-01"
+#define STRING_DISTRIBUTION_DATE "2022-01-02"
 
 /**
  * Defines a generic printer name to be output to the LCD after booting Marlin.
  */
-#define MACHINE_NAME "Elegoo Neptune 2"
+#define MACHINE_NAME "Elegoo Neptune 2S"
 
 /**
  * The SOURCE_CODE_URL is the location where users will find the Marlin Source
