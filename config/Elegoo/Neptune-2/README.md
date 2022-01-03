@@ -1,8 +1,6 @@
-** NOTICE: ** Several people are still testing this. If you want something more stable, you may want to wait. You can see the [current testing status, known issues, workarounds, and faq's here](https://github.com/just-trey/Marlin/blob/elegoo-neptune-2/config/Elegoo/Neptune-2/TESTING_STATUS.MD).
+** NOTICE: ** Several people are still testing this. If you want something more stable, you may want to wait. You can see the [current testing status, known issues, workarounds, and faq's here](TESTING_STATUS.md).
 
-Changelog is now availble here:
-
-
+[A changelog is now available here](CHANGELOG.md)
 
 # Marlin 2.x - Color UI - 3D Printer Firmware compiled for Elegoo Neptune 2
 
@@ -37,7 +35,7 @@ All versions provided come with these features.
 BLTouch versions also include:
 1. Z Level Offset Wizard
 1. **Live Z** Support
-1. Bad tramming wizard option (I mean, you still need to level every once and a while)
+1. Bed tramming wizard option (I mean, you still need to level every once and a while)
 
 # Do I lose any features if I use this?
 
@@ -50,8 +48,8 @@ The following items are not supported:
 
 ## Getting things ready
 
-1. Download this [zip](https://github.com/just-trey/Marlin/releases/download/Marlin-2.0.9.3-elegoo/Elegoo.zip) file.
-2. extract the zip file on your computer
+1. [Download the latest version here](https://github.com/just-trey/Marlin/releases/latest/download/Elegoo.zip).
+2. Extract the zip file on your computer
 3. Copy the desired `elegoo.bin` configuration to your SD Card. No other files are needed to install.  
    
    ***NOTE:*** **IT IS IMPORTANT YOU KNOW THE VERSION OF THE ZNP ROBIN NANO BOARD YOU HAVE, AND YOU NEED TO USE THAT VERSION OF THE FIRMWARE**
@@ -69,43 +67,44 @@ The following items are not supported:
 NOTE: the last four steps may seem a little odd, but I can confirm this is working reliably. I will be opening an ISSUE on the Marlin GitHub repo to see if there is a better way. 
 
 1. Power off your printer
-1. Put the sd card in with the appropriate `elegoo.bin` file... *Reminder: Did I mention to make sure you have the correct version for your board?*
-1. Turn on your printer.
-1. The firmware will install.
-1. Once installed, click on the calibration touchpoints. When the touch calibration is complete, it will display a confirmation message. You may think it froze but give it a little time.
+2. Put the sd card in with the appropriate `elegoo.bin` file... *Reminder: Did I mention to make sure you have the correct version for your board?*
+3. Turn on your printer.
+4. The firmware will install.
+5. if a screen appears asking to set the EEPROM, click the checkmark.
+6. Once installed, click on the calibration touchpoints. When the touch calibration is complete, it will display a confirmation message. You may think it froze but give it a little time.
 
-   Please note: After you click the bottom right calibration point, reboot your machine if it prompts you to click the top left again. I have never had to do this more than twice when installing the firmware. 
+   Please note: After you click the bottom right calibration point, reboot your machine if it prompts you to click the top left again. I have never had to do this more than twice when installing the firmware. This may be a unique issue to me because I have had it since I bought this printer.
 
-2. Click *SETTINGS ICON -> Configuration -> Advanced Settings -> NEXT ARROW (>) -> Initialize EEPROM*
-3. Click the Check on the confirmation screen
-4. reboot your machine
-5. Click the calibration touchpoints again   
+7. If you reset your EEPROM on Step 5, you are good to go. If not, proceed to step 8. 
+8. Click *SETTINGS ICON -> Configuration -> Advanced Settings -> NEXT ARROW (>) -> Initialize EEPROM*
+9. Click the Check on the confirmation screen
+10. reboot your machine
+11. Click the calibration touchpoints again if they come up
+  
 ## (Optional, but recommended) PID AUTOTUNE your machine.
 
 *Did you know?* - Elegoo ships with some default values for this, but they can vary with *every* machine. PID tuning is a safety feature, and unless you want my machine's values, I suggest you do this.
 
 1. From the main screen click on *settings icon -> Configuration -> Advanced Settings -> NEXT ARROW (>) -> Tempeture -> PID AUTOTUNE E1*
-1. The nozzle will heat up and down for a few minutes. When completed, the screen will display a confirmation message on the bottom of the status screen.
-1. From the main screen click on *settings icon -> Configuration -> Advanced Settings -> NEXT ARROW (>) -> Tempeture -> NEXT ARROW (>) -> PID AUTOTUNE BED*
-1. The bed will heat up and down for a few minutes. When completed, the screen will display a confirmation message on the bottom of the status screen.
-1. From the main screen click on the *settings icon -> Configuration -> NEXT ARROW (>) -> Store settings*
+2. The nozzle will heat up and down for a few minutes. When completed, the screen will display a confirmation message on the bottom of the status screen.
+3. From the main screen click on *settings icon -> Configuration -> Advanced Settings -> NEXT ARROW (>) -> Tempeture -> NEXT ARROW (>) -> PID AUTOTUNE BED*
+4. The bed will heat up and down for a few minutes. When completed, the screen will display a confirmation message on the bottom of the status screen.
+5. From the main screen click on the *settings icon -> Configuration -> NEXT ARROW (>) -> Store settings*
 
 ## TIPS
 
-### Z Offest See=ttings Wizard Location
+### Z Offest Wizard Location
 
-1. *settings icon -> Configuration -> Advanced Settings -> NEXT ARROW (>) -> Tempeture -> NEXT ARROW (>) -> PID AUTOTUNE BED*
+Located at: *settings icon -> Configuration -> Advanced Settings -> NEXT ARROW (>) -> Tempeture -> NEXT ARROW (>) -> Probe Offsets*
 
 ### Live Z Offset (Baby Stepping) Location
 
-While printing: 
-
-*settings icon -> Tune -> NEXT ARROW (>) -> HERE*
+While printing:  *settings icon -> Tune -> NEXT ARROW (>) -> Probe Z Offset*
 
 ### Dual Fan BT Touch Probe offsets
 
-If you happen to use [this dual fan printhead](https://www.thingiverse.com/thing:4949488), the X offset is 47.5, and the Y offest is 0 
-You can set this at: *settings icon -> Tune -> NEXT ARROW (>) -> HERE*
+If you happen to use [this dual fan printhead](https://www.thingiverse.com/thing:4949488), the X offset is 47.5
+You can set this at: *settings icon -> Configuration -> Advanced Settings -> NEXT ARROW (>) -> Tempeture -> NEXT ARROW (>) -> Probe Offsets*
 
 ## Donation Request
 
