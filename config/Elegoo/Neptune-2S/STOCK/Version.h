@@ -21,8 +21,7 @@
  */
 #pragma once
 
-#define CONFIG_EXAMPLES_DIR "Elegoo/Neptune-2/V1.2/STOCK"
-//#define CONFIG_EXAMPLES_DIR "Elegoo/Neptune-2S/STOCK"
+#define CONFIG_EXAMPLES_DIR "Elegoo/Neptune2S"
 
 ////////////////////////////
 // VENDOR VERSION EXAMPLE //
