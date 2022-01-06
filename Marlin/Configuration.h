@@ -78,18 +78,13 @@
  * managing multiple configurations or override values specified in other files.
  */
 
-// Name of the firmware file output to support elegoo's locked bootloader
-// This only works with BOARD_MKS_ROBIN_NANO
-// for BOARD_MKS_ROBIN_NANO_V1_3_F4 manually rename Robin_nano35.bin to elegoo.bin after build
-#define FIRMWARE_BIN elegoo.bin
+//#define IS_BOARD_1_2  // Enable if you have the 1.2 board, disable for 1.3 board
 //#define HAS_BLTOUCH   // Enable if you want to use BLTOUCH
-
 // Define missing pins
-#define POWER_LOSS_PIN                    PA2
-#define MT_DET_PIN_STATE                  LOW
+#define POWER_LOSS_PIN          PA2
+#define MT_DET_PIN_STATE        LOW
 
 /* Neptune 2 Custom Theme (adjustments for better clarity) */
-
 #define COLOR_GRAYER            0x8C51 // #8D8D8D
 
 #define COLOR_BACKGROUND        COLOR_BLACK
@@ -140,7 +135,7 @@
 #define SHOW_BOOTSCREEN
 
 // Show the bitmap in Marlin/_Bootscreen.h on startup.
-// #define SHOW_CUSTOM_BOOTSCREEN
+//#define SHOW_CUSTOM_BOOTSCREEN
 
 // Show the bitmap in Marlin/_Statusscreen.h on the status screen.
 //#define CUSTOM_STATUS_SCREEN_IMAGE
@@ -148,9 +143,15 @@
 // @section machine
 
 // Choose the name from boards.h that matches your setup
-// NOTE platformio.ini set: default_envs = mks_robin_nano_v1_3_f4
+// NOTE for platformio.ini:
+// For ZNP Robin Nano 1.2 - set default_envs = mks_robin_nano35
+// For ZNP Robin Nano 1.3 - default_envs = mks_robin_nano_v1_3_f4
 #ifndef MOTHERBOARD
-  #define MOTHERBOARD BOARD_MKS_ROBIN_NANO_V1_3_F4
+  #if ENABLED(IS_BOARD_1_2)
+    #define MOTHERBOARD BOARD_MKS_ROBIN_NANO
+  #else
+    #define MOTHERBOARD BOARD_MKS_ROBIN_NANO_V1_3_F4
+  #endif
 #endif
 
 /**
@@ -1258,7 +1259,7 @@
  *     |    [-]    |
  *     O-- FRONT --+
  */
-#define NOZZLE_TO_PROBE_OFFSET { 32.55, -7, 0 }
+#define NOZZLE_TO_PROBE_OFFSET { 32.55, -3, 0 }
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
@@ -1506,7 +1507,7 @@
 #endif
 
 #if EITHER(MIN_SOFTWARE_ENDSTOPS, MAX_SOFTWARE_ENDSTOPS)
-  //#define SOFT_ENDSTOPS_MENU_ITEM  // Enable/Disable software endstops from the LCD
+  #define SOFT_ENDSTOPS_MENU_ITEM  // Enable/Disable software endstops from the LCD
 #endif
 
 /**
@@ -1745,7 +1746,7 @@
   //=================================== Mesh ==================================
   //===========================================================================
 
-  #define MESH_INSET 10          // Set Mesh bounds as an inset region of the bed
+  #define MESH_INSET 20          // Set Mesh bounds as an inset region of the bed
   #define GRID_MAX_POINTS_X 3    // Don't use more than 7 points per axis, implementation limited.
   #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
 
@@ -2841,13 +2842,13 @@
   #define TFT_DRIVER AUTO
 
   // Interface. Enable one of the following options:
-  //#define TFT_INTERFACE_FSMC
+  #define TFT_INTERFACE_FSMC
   //#define TFT_INTERFACE_SPI
 
   // TFT Resolution. Enable one of the following options:
   //#define TFT_RES_320x240
   //#define TFT_RES_480x272
-  //#define TFT_RES_480x320
+  #define TFT_RES_480x320
   //#define TFT_RES_1024x600
 #endif
 
@@ -2944,7 +2945,7 @@
 // Use software PWM to drive the fan, as for the heaters. This uses a very low frequency
 // which is not as annoying as with the hardware PWM. On the other hand, if this frequency
 // is too low, you should also increment SOFT_PWM_SCALE.
-#define FAN_SOFT_PWM
+//#define FAN_SOFT_PWM
 
 // Incrementing this by 1 will double the software PWM frequency,
 // affecting heaters, and the fan if FAN_SOFT_PWM is enabled.
@@ -2957,7 +2958,7 @@
 // be used to mitigate the associated resolution loss. If enabled,
 // some of the PWM cycles are stretched so on average the desired
 // duty cycle is attained.
-#define SOFT_PWM_DITHER
+//#define SOFT_PWM_DITHER
 
 // Temperature status LEDs that display the hotend and bed temperature.
 // If all hotends, bed temperature, and target temperature are under 54C
