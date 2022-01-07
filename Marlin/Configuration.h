@@ -78,7 +78,6 @@
  */
 
 #define IS_BOARD_1_3            true  // True if you have the 1.3 board, false for 1.2 board
-#define IS_2D                   false // True if you have a Neptuen 2d (Dual extruder)
 #define HAS_BLTOUCH             false // Enable if you have a BlTouch, false fo no BlTouch
 // Define missing pins
 #define POWER_LOSS_PIN          PA2
@@ -247,11 +246,7 @@
 
 // This defines the number of extruders
 // :[0, 1, 2, 3, 4, 5, 6, 7, 8]
-#if IS_2D
-  #define EXTRUDERS 2
-#else
-  #define EXTRUDERS 1
-#endif
+#define EXTRUDERS 1
 
 // Generally expected filament diameter (1.75, 2.85, 3.0, ...). Used for Volumetric, Filament Width Sensor, etc.
 #define DEFAULT_NOMINAL_FILAMENT_DIA 1.75
@@ -551,11 +546,7 @@
  *
  */
 #define TEMP_SENSOR_0 1
-#if IS_2D
-  #define TEMP_SENSOR_1 1
-#else
-  #define TEMP_SENSOR_1 0
-#endif
+#define TEMP_SENSOR_1 0
 #define TEMP_SENSOR_2 0
 #define TEMP_SENSOR_3 0
 #define TEMP_SENSOR_4 0
@@ -991,15 +982,6 @@
  */
 
 /**
- * With this option each E stepper can have its own factors for the
- * following movement settings. If fewer factors are given than the
- * total number of extruders, the last value applies to the rest.
- */
-#if IS_2D
-  #define DISTINCT_E_FACTORS
-#endif
-
-/**
  * Default Axis Steps Per Unit (steps/mm)
  * Override with M92
  * E0 tuned for my Elegoo Neptune 2S, but may differ on your onw machine. Its recommended to tune on your own machine once you have it setup
@@ -1012,11 +994,7 @@
  * Override with M203
  *                                      X, Y, Z [, I [, J [, K]]], E0 [, E1[, E2...]]
  */
-#if IS_2D
-  #define DEFAULT_MAX_FEEDRATE          { 150, 150, 3, 70, 70 }
-#else
-  #define DEFAULT_MAX_FEEDRATE          { 150, 150, 3, 70 }
-#endif
+#define DEFAULT_MAX_FEEDRATE          { 150, 150, 3, 70 }
 
 //#define LIMITED_MAX_FR_EDITING        // Limit edit via M203 or LCD to DEFAULT_MAX_FEEDRATE * 2
 #if ENABLED(LIMITED_MAX_FR_EDITING)
@@ -1544,12 +1522,7 @@
 #define FILAMENT_RUNOUT_SENSOR
 #if ENABLED(FILAMENT_RUNOUT_SENSOR)
   #define FIL_RUNOUT_ENABLED_DEFAULT true // Enable the sensor on startup. Override with M412 followed by M500.
-  #if IS_2D
-    #define NUM_RUNOUT_SENSORS   2          // Number of sensors, up to one per extruder. Define a FIL_RUNOUT#_PIN for each.
-  #else
-    #define NUM_RUNOUT_SENSORS   1          // Number of sensors, up to one per extruder. Define a FIL_RUNOUT#_PIN for each.
-  #endif
-
+  #define NUM_RUNOUT_SENSORS   1          // Number of sensors, up to one per extruder. Define a FIL_RUNOUT#_PIN for each.
   #define FIL_RUNOUT_STATE     LOW        // Pin state indicating that filament is NOT present.
   #define FIL_RUNOUT_PULLUP               // Use internal pullup for filament runout pins.
   //#define FIL_RUNOUT_PULLDOWN           // Use internal pulldown for filament runout pins.
