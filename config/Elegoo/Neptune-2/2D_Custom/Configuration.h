@@ -69,7 +69,8 @@
 // @section info
 
 // Author info of this build printed to the host during boot and M115
-#define STRING_CONFIG_H_AUTHOR "(P4ND4_1100010, Neptune 2S - Marlin 2 Color UI)" // Who made the changes.
+#define STRING_CONFIG_H_AUTHOR "(just-trey, mlee12382, and EvilGremlin, Neptune 2 - Marlin 2 Color UI)" // Who made the changes.
+//#define CUSTOM_VERSION_FILE Version.h // Path from the root directory (no quotes)
 
 // @section custom
 /**
@@ -78,8 +79,8 @@
  */
 
 #define IS_BOARD_1_3            true  // True if you have the 1.3 board, false for 1.2 board
-#define IS_2D                   false // True if you have a Neptuen 2d (Dual extruder)
-#define HAS_BLTOUCH             false // Enable if you have a BlTouch, false fo no BlTouch
+#define IS_2D                   true // True if you have a Neptuen 2d (Dual extruder)
+#define HAS_BLTOUCH             true  // Enable if you have a BlTouch, false fo no BlTouch
 // Define missing pins
 #define POWER_LOSS_PIN          PA2
 #define MT_DET_PIN_STATE        LOW
@@ -198,7 +199,11 @@
 //#define BLUETOOTH
 
 // Name displayed in the LCD "Ready" message and Info menu
-#define CUSTOM_MACHINE_NAME "Elegoo Neptune 2S"
+#if IS_2D
+  #define CUSTOM_MACHINE_NAME "Elegoo Neptune 2D"
+#else
+  #define CUSTOM_MACHINE_NAME "Elegoo Neptune 2"
+#endif
 
 // Printer's unique ID, used by some programs to differentiate between machines.
 // Choose your own or use a service like https://www.uuidgenerator.net/version4
@@ -668,10 +673,10 @@
     #define DEFAULT_Ki_LIST {   1.08,   1.08 }
     #define DEFAULT_Kd_LIST { 114.00, 114.00 }
   #else
-    // Tuned for my Elegoo Neptune 2S, but you should tune on your own machine once you have it setup
-    #define DEFAULT_Kp  33.25
-    #define DEFAULT_Ki   3.68
-    #define DEFAULT_Kd  75.15
+    // tuned for my Elegoo Neptune 2, but you should tune on you own machine once you haev it setup
+    #define DEFAULT_Kp  30.38
+    #define DEFAULT_Ki   2.77
+    #define DEFAULT_Kd  83.24
   #endif
 #endif // PIDTEMP
 
@@ -711,10 +716,10 @@
   // 120V 250W silicone heater into 4mm borosilicate (MendelMax 1.5+)
   // from FOPDT model - kp=.39 Tp=405 Tdead=66, Tc set to 79.2, aggressive factor of .15 (vs .1, 1, 10)
 
-  // Tuned for my Elegoo Neptune 2S, but you should tune on your own machine once you have it setup
-  #define DEFAULT_bedKp 68.92
-  #define DEFAULT_bedKi 12.49
-  #define DEFAULT_bedKd 253.63
+  // tuned for Elegoo Neptune 2, but you should tune on you own machine once you haev it setup
+  #define DEFAULT_bedKp 38.64
+  #define DEFAULT_bedKi 7.55
+  #define DEFAULT_bedKd 131.88
 
   // FIND YOUR OWN: "M303 E-1 C8 S90" to run autotune on the bed at 90 degreesC for 8 cycles.
 #endif // PIDTEMPBED
@@ -1002,10 +1007,13 @@
 /**
  * Default Axis Steps Per Unit (steps/mm)
  * Override with M92
- * E0 tuned for my Elegoo Neptune 2S, but may differ on your onw machine. Its recommended to tune on your own machine once you have it setup
  *                                      X, Y, Z [, I [, J [, K]]], E0 [, E1[, E2...]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 133 }
+#if IS_2D
+  #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 95, 95 }
+#else
+  #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 95 }
+#endif
 
 /**
  * Default Max Feed Rate (mm/s)
@@ -1277,11 +1285,11 @@
  *     |    [-]    |
  *     O-- FRONT --+
  */
-#define NOZZLE_TO_PROBE_OFFSET { 32.55, 3, 0 }
+#define NOZZLE_TO_PROBE_OFFSET { 52.55, -7, -2.09 }
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
-#define PROBING_MARGIN 20
+#define PROBING_MARGIN 10
 
 // X and Y axis travel speed (mm/min) between probes
 #define XY_PROBE_FEEDRATE (4000)
@@ -1366,7 +1374,7 @@
 #define Z_PROBE_OFFSET_RANGE_MAX 50
 
 // Enable the M48 repeatability test to test probe accuracy
-//#define Z_MIN_PROBE_REPEATABILITY_TEST
+#define Z_MIN_PROBE_REPEATABILITY_TEST
 
 // Before deploy/stow pause for user confirmation
 //#define PAUSE_BEFORE_DEPLOY_STOW
@@ -1664,7 +1672,7 @@
 /**
  * Auto-leveling needs preheating
  */
-//#define PREHEAT_BEFORE_LEVELING
+#define PREHEAT_BEFORE_LEVELING
 #if ENABLED(PREHEAT_BEFORE_LEVELING)
   #define LEVELING_NOZZLE_TEMP 180   // (°C) Only applies to E0 at this time
   #define LEVELING_BED_TEMP     50
@@ -1700,7 +1708,7 @@
   /**
    * Enable the G26 Mesh Validation Pattern tool.
    */
-  //#define G26_MESH_VALIDATION
+  #define G26_MESH_VALIDATION
   #if ENABLED(G26_MESH_VALIDATION)
     #define MESH_TEST_NOZZLE_SIZE    0.4  // (mm) Diameter of primary nozzle.
     #define MESH_TEST_LAYER_HEIGHT   0.2  // (mm) Default layer height for G26.
@@ -1716,7 +1724,7 @@
 #if EITHER(AUTO_BED_LEVELING_LINEAR, AUTO_BED_LEVELING_BILINEAR)
 
   // Set the number of grid points per dimension.
-  #define GRID_MAX_POINTS_X 5
+  #define GRID_MAX_POINTS_X 7
   #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
 
   // Probe along the Y axis, advancing X after each column
@@ -2049,7 +2057,7 @@
  *   Caveats: The ending Z should be the same as starting Z.
  * Attention: EXPERIMENTAL. G-code arguments may change.
  */
-//#define NOZZLE_CLEAN_FEATURE
+#define NOZZLE_CLEAN_FEATURE
 
 #if ENABLED(NOZZLE_CLEAN_FEATURE)
   // Default number of pattern repetitions
@@ -2060,8 +2068,8 @@
 
   // Specify positions for each tool as { { X, Y, Z }, { X, Y, Z } }
   // Dual hotend system may use { {  -20, (Y_BED_SIZE / 2), (Z_MIN_POS + 1) },  {  420, (Y_BED_SIZE / 2), (Z_MIN_POS + 1) }}
-  #define NOZZLE_CLEAN_START_POINT { {  30, 30, (Z_MIN_POS + 1) } }
-  #define NOZZLE_CLEAN_END_POINT   { { 100, 60, (Z_MIN_POS + 1) } }
+  #define NOZZLE_CLEAN_START_POINT { {  30, 30, (Z_MIN_POS + 1)}, {195, 30, (Z_MIN_POS + 1)} }
+  #define NOZZLE_CLEAN_END_POINT   { { 100, 60, (Z_MIN_POS + 1)}, {125, 30, (Z_MIN_POS + 1)}}
 
   // Circular pattern radius
   #define NOZZLE_CLEAN_CIRCLE_RADIUS 6.5
@@ -2080,7 +2088,7 @@
   //#define NOZZLE_CLEAN_NO_Y
 
   // Require a minimum hotend temperature for cleaning
-  #define NOZZLE_CLEAN_MIN_TEMP 170
+  #define NOZZLE_CLEAN_MIN_TEMP 200
   //#define NOZZLE_CLEAN_HEATUP       // Heat up the nozzle instead of skipping wipe
 
   // Explicit wipe G-code script applies to a G12 with no arguments.
@@ -2224,7 +2232,7 @@
  *
  * Use CRC checks and retries on the SD communication.
  */
-//#define SD_CHECK_AND_RETRY
+#define SD_CHECK_AND_RETRY
 
 /**
  * LCD Menu Items
@@ -2923,7 +2931,7 @@
   #define BUTTON_DELAY_EDIT  50 // (ms) Button repeat delay for edit screens
   #define BUTTON_DELAY_MENU 250 // (ms) Button repeat delay for menus
 
-  #define TOUCH_IDLE_SLEEP 120 // (secs) Turn off the TFT backlight if set (5mn)
+  //#define TOUCH_IDLE_SLEEP 300 // (secs) Turn off the TFT backlight if set (5mn)
 
   #define TOUCH_SCREEN_CALIBRATION
 
