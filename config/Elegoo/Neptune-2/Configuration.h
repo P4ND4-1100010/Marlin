@@ -178,7 +178,7 @@
  *
  * :[2400, 9600, 19200, 38400, 57600, 115200, 250000, 500000, 1000000]
  */
-#define BAUDRATE 250000
+#define BAUDRATE 115200     // See https://github.com/MarlinFirmware/Marlin/issues/12174
 #define BAUD_RATE_GCODE     // Enable G-code M575 to set the baud rate
 
 /**
@@ -1009,9 +1009,9 @@
  *                                      X, Y, Z [, I [, J [, K]]], E0 [, E1[, E2...]]
  */
 #if IS_2D
-  #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 95, 95 }
+  #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 90, 90 }
 #else
-  #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 95 }
+  #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 133 }
 #endif
 
 /**
