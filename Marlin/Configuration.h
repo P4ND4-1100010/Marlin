@@ -81,7 +81,7 @@
 // MAIN CONFIGURATION SWITCHES FOR FEATURES - see readme.md for more details.
 
 #define IS_BOARD_1_3            true  // True if you have the 1.3 board, false for 1.2 board
-#define HAS_BLTOUCH             false // Enable if you have a BlTouch, false fo no BlTouch
+#define HAS_BLTOUCH             true // Enable if you have a BlTouch, false fo no BlTouch
 // Define missing pins
 #define POWER_LOSS_PIN          PA2
 #define MT_DET_PIN_STATE        LOW
@@ -990,7 +990,7 @@
  * E0 tuned for my Elegoo Neptune 2S, but may differ on your onw machine. Its recommended to tune on your own machine once you have it setup
  *                                      X, Y, Z [, I [, J [, K]]], E0 [, E1[, E2...]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 133 }
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 140 }
 
 /**
  * Default Max Feed Rate (mm/s)
@@ -1077,7 +1077,7 @@
  *
  * See https://github.com/synthetos/TinyG/wiki/Jerk-Controlled-Motion-Explained
  */
-#define S_CURVE_ACCELERATION
+//#define S_CURVE_ACCELERATION
 
 //===========================================================================
 //============================= Z Probe Options =============================
@@ -1258,7 +1258,7 @@
  *     |    [-]    |
  *     O-- FRONT --+
  */
-#define NOZZLE_TO_PROBE_OFFSET { 32.55, 3, 0 }
+#define NOZZLE_TO_PROBE_OFFSET { 51, -7, -1.52 }
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
